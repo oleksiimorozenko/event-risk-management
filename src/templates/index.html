@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delay predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            color: #3c763d;
+        }
+        .error {
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+            color: #a94442;
+        }
+        .suggestions {
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            z-index: 1000;
+            display: none;
+        }
+        .suggestion-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #f0f0f0;
+        }
+        .station-input-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delay predictor</h1>
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="station">Station:</label>
+                <div class="station-input-container">
+                    <input type="text" id="station" name="station" required autocomplete="off">
+                    <div id="suggestions" class="suggestions"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="line">Line:</label>
+                <select id="line" name="line" required>
+                    <option value="">Select a line</option>
+                    <option value="YU">Line 1 (Yonge-University)</option>
+                    <option value="BD">Line 2 (Bloor-Danforth)</option>
+                    <option value="SRT">Line 3 (Scarborough)</option>
+                    <option value="SH">Line 4 (Sheppard)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bound">Direction:</label>
+                <select id="bound" name="bound" required>
+                    <option value="">Select direction</option>
+                    <option value="N">Northbound</option>
+                    <option value="S">Southbound</option>
+                    <option value="E">Eastbound</option>
+                    <option value="W">Westbound</option>
+                </select>
+            </div>
+            <button type="submit" id="submitBtn">Predict Delay</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const stationInput = document.getElementById('station');
+        const suggestionsDiv = document.getElementById('suggestions');
+        const form = document.getElementById('predictionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const resultDiv = document.getElementById('result');
+        let debounceTimer;
+
+        // Handle station input with debouncing
+        stationInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            const query = this.value.trim();
+            
+            if (query.length < 2) {
+                suggestionsDiv.style.display = 'none';
+                return;
+            }
+
+            debounceTimer = setTimeout(() => {
+                fetch(`/suggest_stations?query=${encodeURIComponent(query)}`)
+                    .then(response => response.json())
+                    .then(suggestions => {
+                        if (suggestions.length > 0) {
+                            suggestionsDiv.innerHTML = suggestions
+                                .map(station => `<div class="suggestion-item">${station}</div>`)
+                                .join('');
+                            suggestionsDiv.style.display = 'block';
+                        } else {
+                            suggestionsDiv.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching suggestions:', error);
+                        suggestionsDiv.style.display = 'none';
+                    });
+            }, 300);
+        });
+
+        // Handle suggestion selection
+        suggestionsDiv.addEventListener('click', function(e) {
+            if (e.target.classList.contains('suggestion-item')) {
+                stationInput.value = e.target.textContent;
+                suggestionsDiv.style.display = 'none';
+            }
+        });
+
+        // Hide suggestions when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!stationInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+                suggestionsDiv.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Predicting...';
+            resultDiv.style.display = 'none';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'success';
+                    resultDiv.innerHTML = `
+                        <h3>Prediction results:</h3>
+                        <p>Predicted delay: ${data.predicted_delay_minutes.toFixed(1)} minutes</p>
+                        <p>Risk category: ${data.risk_category_label}</p>
+                        <p>Risk score: ${data.risk_score.toFixed(1)} out of 100</p>
+                        <p>Risk probabilities:</p>
+                        <ul>
+                            <li>No/Minor risk: ${data.risk_probabilities['No/Minor'].toFixed(1)}%</li>
+                            <li>Moderate risk: ${data.risk_probabilities['Moderate'].toFixed(1)}%</li>
+                            <li>Severe risk: ${data.risk_probabilities['Severe'].toFixed(1)}%</li>
+                        </ul>
+                    `;
+                } else {
+                    resultDiv.className = 'error';
+                    resultDiv.textContent = data.error || 'An error occurred while making the prediction.';
+                }
+            } catch (error) {
+                resultDiv.className = 'error';
+                resultDiv.innerHTML = `
+                    <h3>Error:</h3>
+                    <p>${error.message || 'An error occurred while making the prediction.'}</p>
+                    <p>Please check the console for more details.</p>
+                `;
+                console.error('Error:', error);
+            } finally {
+                resultDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Predict Delay';
+            }
+        });
+    </script>
+</body>
+</html> 

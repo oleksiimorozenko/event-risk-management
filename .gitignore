@@ -1,0 +1,6 @@
+.DS_Store
+.Rhistory
+.ipynb_checkpoints
+.venv
+.vscode
+__pycache__

@@ -91,10 +91,17 @@
         .station-input-container {
             position: relative;
         }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 200px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="/static/logo.png" alt="Transit delay predictor logo" class="logo">
         <h1>Transit delay predictor</h1>
         <form id="predictionForm">
             <div class="form-group">
@@ -132,7 +139,7 @@
                     <option value="W">Westbound</option>
                 </select>
             </div>
-            <button type="submit" id="submitBtn">Predict Delay</button>
+            <button type="submit" id="submitBtn">Predict delay</button>
         </form>
         <div id="result"></div>
     </div>
@@ -236,7 +243,7 @@
             } finally {
                 resultDiv.style.display = 'block';
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Predict Delay';
+                submitBtn.textContent = 'Predict delay';
             }
         });
     </script>

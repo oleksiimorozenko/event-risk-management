@@ -1,5 +1,21 @@
-# Risk management for event companies
-`TODO:` Consider new title: "Risk management using Deep Learning"
+<br />
+<div align="center">
+  <img src="src/static/logo.png" alt="Original logo generated using AI (DALL·E), with modifications" width="634" height="393">
+
+  <h2 align="center">Event risk management</h2>
+
+  <p align="center">
+    Risk management for event companies using machine learning
+    <br />
+    <a href="https://event-risk-management.koyeb.app">View Demo</a>
+    ·
+    <a href="https://github.com/oleksiimorozenko/event-risk-management/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/oleksiimorozenko/event-risk-management/issues">Request Feature</a>
+  </p>
+</div>
+
+## About the project
 This repository contains a predictive model to estimate daily delay times at each station.
 This model will help event-planning companies optimize event dates and shuttle bus schedules by providing accurate delay forecasts.
 The goal is to enhance scheduling efficiency, minimize transportation disruptions, and improve attendee experience.

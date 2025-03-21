@@ -1,0 +1,22 @@
+# Use Python 3.9 slim image with amd64 architecture
+FROM --platform=linux/amd64 python:3.9-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code and data
+COPY src/ ./src/
+COPY data/ ./data/
+
+# Create models directory
+RUN mkdir -p models
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+
+# Run the training script
+CMD ["python", "src/model_training.py"] 

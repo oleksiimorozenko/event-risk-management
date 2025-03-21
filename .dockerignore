@@ -1,0 +1,9 @@
+.DS_Store
+.Rhistory
+.git*
+.dockerignore
+.ipynb_checkpoints
+.venv
+.vscode
+__pycache__
+*.ipynb

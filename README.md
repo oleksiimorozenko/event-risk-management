@@ -19,7 +19,7 @@ This project was developed collaboratively by the following team members:
     
 -   Mara Di Loreto  [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/maradiloreto) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/maradiloreto)
     
--   `TODO`: Brijesh
+-   Brijesh Trivedi  [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/brijesh-trivedi-70273830b) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/brtivedi5)
 
 ## <a id="project-overview"></a>Project Overview
 - [Requirements](#requirements)

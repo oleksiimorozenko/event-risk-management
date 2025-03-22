@@ -86,7 +86,7 @@ Risk management for event companies using machine learning
 
 This repository contains a predictive model to estimate daily delay times at each station. This model will help event-planning companies optimize event dates and shuttle bus schedules by providing accurate delay forecasts. The goal is to enhance scheduling efficiency, minimize transportation disruptions, and improve attendee experience.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
   
 ## Team members
 This project was developed collaboratively by the following team members:
@@ -103,12 +103,12 @@ This project was developed collaboratively by the following team members:
 
 - Brijesh Trivedi [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/brijesh-trivedi-70273830b) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/brtivedi5)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Video presentations
 [ Available on Google Drive](https://drive.google.com/drive/folders/1wjNnm4UX0zm2vnmKUTywFbkwBDyECnkx?usp=sharing)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Project overview
 
@@ -116,7 +116,7 @@ We analyzed TTC Subway Delay Data from open.toronto.ca, covering 2022, 2023, and
 
 This project focused on applying data cleaning and processing techniques learned throughout the DSI course. The goal was to develop a solution that effectively utilizes the dataset to improve understanding of subway service interruptions in Toronto.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Business Context
 ### Problem
@@ -137,7 +137,7 @@ Various sectors can benefit from this model, including:
  - Academic & research institutions
 **Focus Area:** We have chosen to prioritize the **event and hospitality industry**.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Solution: a transit delay predictor
 
@@ -162,7 +162,7 @@ Our model provides event-planning companies with accurate transit delay forecast
 
 By aligning with event industry needs, our model helps ensure smooth, efficient, and well-coordinated events.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Exploratory Analysis and Data Cleaning
 Our initial hypothesis was that subway delays could be predicted using the available datasets. We proposed that by categorizing delay causes into two main groups, internal and external factors, we could focus on predicting delays based on internal factors, as these are the ones that can be improved directly. To enhance data processing, we further subdivided the internal factors into five categories.
@@ -246,7 +246,7 @@ When spelling mistakes and multiple names were standardized and combined, it had
   </tr>
 </table>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Data processing
 ### Current data structure
@@ -285,7 +285,7 @@ When spelling mistakes and multiple names were standardized and combined, it had
  - Categorizations: **Delay_Category**, **Code_Category**
  - Encoded versions of categorical features
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Model development
 ### First try
@@ -310,12 +310,12 @@ Since this approach combines two models; Random Forest Regression and Random For
 
 Building on ideas from previous approaches, this method appears more effective: it leverages the full dataset (unlike approach 1) while also predicting exact delay times (unlike approach 2, which only provides a binary decision).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Conclusion
 Our attempt to predict delays on the TTC network provided valuable insights, demonstrating the potential of transit data for forecasting. A significant challenge was the time required to analyze and understand the dataset, as it contained inconsistencies and lacked some features. Despite this, we explored three different approaches before successfully designing a working predictive model. While our solution is functional, it remains a basic implementation with no UX/UI considerations. If needed, we are open to improving this aspect to enhance usability. This project strengthened our problem-solving skills, deepened our understanding of predictive modelling, and reinforced the importance of efficient data processing.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
 ## Recommendations for TTC
 We propose two key recommendations:
@@ -355,4 +355,4 @@ Below is a list of recommended columns to add to the .xlsx files.
  - Incident Code ID
  - Line ID
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#event-risk-management">back to top</a>)</p>

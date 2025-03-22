@@ -17,14 +17,8 @@ Risk management for event companies using machine learning
 
 <br />
 
-<a  href="https://event-risk-management.koyeb.app">View Demo</a>
-
-·
-
-<a  href="https://github.com/oleksiimorozenko/event-risk-management/issues">Report Bug</a>
-
-·
-
+<a  href="https://event-risk-management.koyeb.app">View Demo</a> ·
+<a  href="https://github.com/oleksiimorozenko/event-risk-management/issues">Report Bug</a> ·
 <a  href="https://github.com/oleksiimorozenko/event-risk-management/issues">Request Feature</a>
 
 </p>
@@ -100,7 +94,7 @@ Our model provides event-planning companies with accurate transit delay forecast
 
 
 
-![demo](images/demo.png)
+![demo](presentation/demo.gif)
 
 
 

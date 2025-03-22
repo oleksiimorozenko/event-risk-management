@@ -291,6 +291,9 @@ When spelling mistakes and multiple names were standardized and combined, it had
 ### First try
 Initially, we tried to remove all zero-delay events, as well as the observations with missing bound values. It resulted in a significant shortening of the dataset: we ended up with about 5K observations out of 70K we had in the combined dataset. This data-cleaning approach is problematic as it eliminates 93% of the original observations, severely compromising the dataset's statistical significance and introducing selection bias by focusing only on five stations and non-zero delays. This aggressive filtering removes valuable baseline data about normal operations and system-wide patterns, while also discarding potentially informative missing values that could indicate specific types of delays or system states. Consequently, any model trained on this reduced dataset would have limited predictive capabilities and would be unable to provide insights about the entire transit system's behaviour.
 
+
+For more details, refer to the corresponding [notebook file](notebooks/02a-data_cleaning.ipynb)
+
 ### Second try
 After removing Null values and keeping only the top 5 stations with the most delays, 7,744 observations remained. The goal was to predict whether there would be a TTC delay (binary classification) using the following models:
  - Logistic Regression
@@ -299,11 +302,17 @@ After removing Null values and keeping only the top 5 stations with the most del
  - Gradient Boosting Classification
  - Neural Network Classification
 
+
+For more details, refer to the corresponding [notebook file](notebooks/TTC%20Delay%20vs%20NoDelay.ipynb)
+
 ### Third try (final)
 This approach uses a dual model approach:
  - Regression model - Random Forest Regression, to predict exact delay times (actual delay minutes)
  - Classification model - Random Forest Classification, to predict risk categories (minor/moderate/major)
  - Combined risk score: combines both model predictions
+
+
+For more details, refer to the corresponding [source code directory](src/)
 
 #### Methodologies
 Since this approach combines two models; Random Forest Regression and Random Forest Classification, it enables the use of the full dataset (70,000 observations compared to approximately 5,000 after removing zero values in the first approach). By imputing missing values, it preserves more data, leading to more precise predictions, as zero delays indicate periods when the service was running smoothly.

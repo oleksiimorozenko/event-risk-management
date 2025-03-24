@@ -91,22 +91,14 @@ This repository contains a predictive model to estimate daily delay times at eac
 ## Team members
 This project was developed collaboratively by the following team members:
 
-- Oleksii Morozenko [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/oleksii-morozenko) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/oleksiimorozenko)
-
-- Colin (Lin) Song [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/colin（lin）-song-msc-8a5b8611b) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/colsong)
-
-- Ian Lilley [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/ian-lilley) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/ian-lilley)
-
-- Urooj Iftikhar [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/urooj-fatima-iftikhar) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/Urooj1607)
-
-- Mara Di Loreto [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/maradiloreto) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/maradiloreto)
-
-- Brijesh Trivedi [![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/brijesh-trivedi-70273830b) [![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/brtivedi5)
-
-<p align="right">(<a href="#event-risk-management">back to top</a>)</p>
-
-## Video presentations
-[ Available on Google Drive](https://drive.google.com/drive/folders/1wjNnm4UX0zm2vnmKUTywFbkwBDyECnkx?usp=sharing)
+|   |   |   |   |
+|---|---|---|---|
+|Oleksii Morozenko|[![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/oleksii-morozenko)|[![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/oleksiimorozenko)|[![YouTube](https://icons.iconarchive.com/icons/dakirby309/simply-styled/32/YouTube-icon.png)](https://www.youtube.com/watch?v=l9iYBYPgmEs)|
+|Colin (Lin) Song|[![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/colin（lin）-song-msc-8a5b8611b)|[![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/colsong)|[![GDrive](https://icons.iconarchive.com/icons/marcus-roberto/google-play/32/Google-Drive-icon.png)](https://drive.google.com/file/d/1S08AlzNDsBBzjzAeUEN1x-ig_Q96ZpBu/view?usp=share_link)|
+|Ian Lilley|[![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/ian-lilley)|[![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/ian-lilley)|[![GDrive](https://icons.iconarchive.com/icons/marcus-roberto/google-play/32/Google-Drive-icon.png)](https://drive.google.com/file/d/1IrF-vBAq74pCcFjj1Tg4WignGhh_suO7/view?usp=share_link)|
+|Urooj Iftikhar|[![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/urooj-fatima-iftikhar)|[![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/Urooj1607)|[![GDrive](https://icons.iconarchive.com/icons/marcus-roberto/google-play/32/Google-Drive-icon.png)](https://drive.google.com/file/d/1VvxqNKOKlUADnU0pN7vjRfkhzrVYvd_C/view?usp=share_link)|
+|Mara Di Loreto|[![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/maradiloreto)|[![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/maradiloreto)|[![GDrive](https://icons.iconarchive.com/icons/marcus-roberto/google-play/32/Google-Drive-icon.png)](https://drive.google.com/file/d/1VvxqNKOKlUADnU0pN7vjRfkhzrVYvd_C/view?usp=share_link)|
+|Brijesh Trivedi|[![LinkedIn](https://icons.iconarchive.com/icons/limav/flat-gradient-social/32/Linkedin-icon.png)](https://www.linkedin.com/in/brijesh-trivedi-70273830b)|[![GitHub](https://icons.iconarchive.com/icons/pictogrammers/material/32/github-icon.png)](https://github.com/brtivedi5)||
 
 <p align="right">(<a href="#event-risk-management">back to top</a>)</p>
 
@@ -312,7 +304,7 @@ This approach uses a dual model approach:
  - Combined risk score: combines both model predictions
 
 
-For more details, refer to the corresponding [source code directory](src/)
+For more details, refer to the corresponding [source code directory](src/) and [reports](reports/)
 
 #### Methodologies
 Since this approach combines two models; Random Forest Regression and Random Forest Classification, it enables the use of the full dataset (70,000 observations compared to approximately 5,000 after removing zero values in the first approach). By imputing missing values, it preserves more data, leading to more precise predictions, as zero delays indicate periods when the service was running smoothly.

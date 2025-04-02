@@ -21,6 +21,8 @@ Risk management for event companies using machine learning
 
 </p>
 
+[Technical information](README-tech.md)
+
 </div>
 
 <details>
